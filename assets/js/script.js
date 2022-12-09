@@ -157,3 +157,17 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+
+//Enable tooltips everywhere
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+    
+    /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
+    new GitHubCalendar("#github-graph", "SafwanGanz", { responsive: true });
+    
+    
+    /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
+    GitHubActivity.feed({ username: "SafwanGanz", selector: "#ghfeed" });
