@@ -165,9 +165,34 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
 })
     
-    /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
-    new GitHubCalendar("#github-graph", "SafwanGanz", { responsive: true });
+    // Produces width of .barChart
+$(document).ready(function() {
+  $('.graph-bar').each(function() {
+     var dataWidth = $(this).data('value');
+     $(this).css("width", dataWidth + "%");
+  });
+});
+
+// Positioning of .bubbleChart
+$(document).ready(function() {
+  $('.chart-bubble').each(function() {
+    // Bubble Size
+    var bubbleSize = $(this).data('value');    
+    $(this).css("width", function() {
+      return (bubbleSize * 10) + "px"
+    });
+    $(this).css("height", function() {
+      return (bubbleSize * 10) + "px"
+    });
     
-    
-    /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-    GitHubActivity.feed({ username: "SafwanGanz", selector: "#ghfeed" });
+    // Bubble Position
+    var posX = $(this).data('x');
+    var posY = $(this).data('y');    
+    $(this).css("left", function() {
+      return posX - (bubbleSize * 0.5) + "%"
+    });
+    $(this).css("bottom", function() {
+      return posY - (bubbleSize * 0.5) + "%"
+    });
+  }); 
+});
